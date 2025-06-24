@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Titanic Prediction</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="login-bg">
+    <div class="container">
+      <div class="titanic-icon">🚢</div>
+      <h2>Sign Up</h2>
+      <form method="post">
+        <label for="username">Username:</label>
+        <input type="text" name="username" required />
+        <label for="password">Password:</label>
+        <input type="password" name="password" required />
+        <input type="submit" value="Sign Up" />
+      </form>
+      <p style="margin-top: 10px">
+        Already have an account? <a href="{{ url_for('login') }}">Login here</a>
+      </p>
+      {% if error %}
+      <div class="result fail">{{ error }}</div>
+      {% endif %} {% if message %}
+      <div class="result" style="background: #27ae60; color: #fff">
+        {{ message }}
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>
